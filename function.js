@@ -21,15 +21,15 @@ function formData() {
   const form = document.getElementById("form-page");
 
   // Function to export data to Excel
-  function exportToExcel(data) {
-    // Convert data to Excel format using SheetJS
-    const worksheet = XLSX.utils.json_to_sheet(data);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+  // function exportToExcel(data) {
+  //   // Convert data to Excel format using SheetJS
+  //   const worksheet = XLSX.utils.json_to_sheet(data);
+  //   const workbook = XLSX.utils.book_new();
+  //   XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 
-    // Export the Excel file
-    XLSX.writeFile(workbook, "data.xlsx");
-  }
+  //   // Export the Excel file
+  //   XLSX.writeFile(workbook, "data.xlsx");
+  // }
 
   // Function to show success message
   function showSuccessMessage() {
@@ -52,14 +52,22 @@ function formData() {
     // Prevent the default form submission
     event.preventDefault();
 
-    const formData = {
-      name: form.elements["name"].value,
-      email: form.elements["email"].value,
-      // Add more fields as needed
-    };
+    // const formData = {
+    //   name: form.elements["name"].value,
+    //   phone: form.elements["phone"].value,
+    //   email: form.elements["email"].value,
+    //   date: form.elements["date"].value,
+    //   address: form.elements["address"].value,
+    //   city: form.elements["city"].value,
+    //   state: form.elements["state"].value,
+    //   pinCode: form.elements["pinCode"].value,
+    //   file: form.elements["file"].value,
+    //   comment: form.elements["comment"].value,
+    // Add more fields as needed
+    // };
 
     // Export data to Excel after submission (in this case, directly)
-    exportToExcel([formData]);
+    // exportToExcel([formData]);
 
     // Simulate data submission (you can replace this with actual AJAX/fetch call)
     // For demonstration purposes, I'm using a setTimeout to simulate a delay
