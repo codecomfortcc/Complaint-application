@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 50px;
+  background-color: #fff;
+  border: 2px solid #e8e4e4;
+  border-radius: 25px;
+  box-shadow: 100% black;
+}
+
+.heading-1 {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: -10px;
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.heading-1:hover {
+  color: rgb(255, 106, 0);
+  background-attachment: fixed;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+#phone {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+#address {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px auto;
+}
+
+button:hover {
+  background-color: #f40707;
+}
+
+.success-message {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text color */
+  padding: 10px; /* Padding */
+  margin-top: 10px; /* Margin from the top */
+  text-align: center; /* Center text */
+}
