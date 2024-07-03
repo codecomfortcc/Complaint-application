@@ -1,16 +1,13 @@
 import { google } from 'googleapis';
 
-const { CLIENT_EMAIL, PRIVATE_KEY, SPREADSHEET_ID } = process.env;
-
-const jwtClient = new google.auth.JWT(
-  CLIENT_EMAIL,
-  null,
-  PRIVATE_KEY.replace(/\\n/g, '\n'),
-  ['https://www.googleapis.com/auth/spreadsheets']
-);
-
-const sheets = google.sheets({ version: 'v4', auth: jwtClient });
-
+const auth = new google.auth.GoogleAuth({
+  credentials: {
+    client_email: process.env.CLIENT_EMAIL,
+    private_key: process.env.PRIVATE_KEY
+  },
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+});
+const sheets = google.sheets({ version: 'v4', auth });
 
 export const  getSheets=(req,res)=>{
 
@@ -18,19 +15,19 @@ export const  getSheets=(req,res)=>{
 
 export const createSheet= async (req,res)=>{
   const {data} = req.body;
-  if (!values) {
+  console.log(data)
+  if (!data) {
     return res.status(400).send('No data provided.');
   }
     try{
       const response = await sheets.spreadsheets.values.append({
-        spreadsheetId: SPREADSHEET_ID,
-        range: 'Sheet1!A1', 
+        spreadsheetId: process.env.SPREADSHEET_ID,
+        range: 'Sheet1!A2', 
         valueInputOption: 'RAW',
         resource: {
-          values,
+          data,
         },
       });
-  
       res.status(200).send(`Appended: ${response.data.updates.updatedCells} cells.`);
       
     }

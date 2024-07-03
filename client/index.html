@@ -1,99 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Complaint Raise applicantion</title>
-    <link rel="stylesheet"  href="style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Raise Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="container">
-      <h2 class="heading-1">Raise the Complaint</h2>
-      <form id="form-page">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Enter Username"
-            name="name"
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your e-mail"
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-          />
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Enter phone number"
-            pattern="[0-9]{10}"
-          />
-        </div>
-        <div class="form-group">
-          <label for="date">Date:</label>
-          <input type="datetime-local" id="date" name="date" />
-        </div>
-        <div class="form-group">
-          <label for="streetAddress">Street Address:</label>
-          <textarea
-            id="address"
-            name="address"
-            placeholder="Enter your address"
-            rows="4"
-            cols="50"
-            pattern="[a-zA-Z0-9\s,'.-]*"
-          ></textarea>
-        </div>
-        <div class="form-group">
-          <label for="city">City:</label>
-          <input type="text" id="city" name="city" placeholder="Enter city" />
-        </div>
-        <div class="form-group">
-          <label for="state">State:</label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            placeholder="ENter State"
-          />
-        </div>
-        <div class="form-group">
-          <label for="pinCode">Pin Code:</label>
-          <input
-            type="text"
-            id="pinCode"
-            name="pinCode"
-            placeholder="Enter pin code"
-          />
-        </div>
-        <div class="form-group">
-          <label for="file">Upload:</label>
-          <input type="file" id="file" name="file" />
-        </div>
-        <div class="form-group">
-          <label for="comment">Comment the Complaint :</label>
-          <input
-            type="text"
-            id="comment"
-            name="comment"
-            placeholder="Write the Complaint"
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-
-      <div id="formattedAddress"></div>
+        <h2 class="heading-1">Raise the Complaint</h2>
+        <div class="step-indicator">
+          <div class="step active" data-step="1">1</div>
+          <div class="step" data-step="2">2</div>
+          <div class="step" data-step="3">3</div>
+          <div class="step-progress">
+              <div class="step-bar"></div>
+          </div>
+      </div>
+        <form id="multi-step-form">
+            <div class="form-step active" id="step-1">
+                <div class="form-group relative">
+                    <input class="floating-input" id="name" name="name" placeholder="" required />
+                    <label for="name" class="floating-label">Name</label>
+                </div>
+                <div class="form-group relative">
+                    <input class="floating-input" type="email" id="email" name="email" placeholder="" required />
+                    <label class="floating-label" for="email">Email</label>
+                </div>
+                <div class="form-group relative">
+                    <input id="phone" class="floating-input" name="phone" pattern="[0-9]{10}" placeholder="" required />
+                    <label for="phone" class="floating-label">Phone</label>
+                </div>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+            <div class="form-step" id="step-2">
+              <div class="form-group relative">
+                <input id="address" class="floating-input" name="address" placeholder="" required />
+                <label for="address" class="floating-label">Address</label>
+            </div>
+                <div class="form-group relative">
+                    <input id="city" class="floating-input" name="city" placeholder="" required />
+                    <label for="city" class="floating-label">City</label>
+                </div>
+                <div class="form-group relative">
+                    <input id="state" class="floating-input" name="state" placeholder="" required />
+                    <label for="state" class="floating-label">State</label>
+                </div>
+                <div class="form-group relative">
+                    <input id="pinCode" name="pincode" pattern="[0-9]{6}" class="floating-input" placeholder="" required />
+                    <label for="pinCode" class="floating-label">Pin code</label>
+                </div>
+            
+                <div class="two-buttons">
+                  <button type="button" class="prev-btn">Previous</button>
+                  <button type="button" class="next-btn">Next</button>
+                </div>
+               
+            </div>
+            <div class="form-step" id="step-3">
+              <div class="form-group relative">
+                <div id="dropzone" class="dropzone">
+                    <input type="file" id="file" class="upload-input" multiple />
+                    <p>Drag and drop files here or click to upload</p>
+                </div>
+            </div>
+                <div class="form-group relative">
+                    <textarea id="comment" rows="4" class="floating-input textarea" name="complaint" placeholder="" required></textarea>
+                    <label for="comment" class="floating-label">Complaint</label>
+                </div>
+                <div class="two-buttons">
+                  <button type="button" class="prev-btn">Previous</button>
+                  <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+        <div id="formattedAddress"></div>
     </div>
-    <script src="js/index.js" type="module"></script>
-  </body>
+    <script src="src/function.js" type="module"></script>
+</body>
 </html>
