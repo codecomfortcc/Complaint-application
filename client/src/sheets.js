@@ -7,7 +7,14 @@ export async function sheetsFetch(data) {
     },
     body: JSON.stringify(data),
   };
+  try {
   const request = new Request(url, options);
   const response = await fetch(request);
-  return response.ok();
+  console.log(response.ok)
+  return response.ok;
+  }
+  catch (e) {
+    console.log(e)
+    return false;
+  }
 }

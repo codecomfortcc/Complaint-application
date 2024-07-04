@@ -14,7 +14,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "..", "client")));
 app.use(express.json());
 app.use('/api/sheets',SheetRouter)
-app.use(cors());
+app.use(cors({
+  origin:["http://localhost:5174","http://localhost:5173"],
+  credentials:true,
+}));
 
 const port = process.env.PORT || 4000;
 

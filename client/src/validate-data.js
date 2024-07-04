@@ -67,7 +67,7 @@ export async function validateData() {
       address: document.getElementById("address").value,
       city: document.getElementById("city").value,
       state: document.getElementById("state").value,
-      zip: document.getElementById("pinCode").value,
+      pinCode: document.getElementById("pinCode").value,
       // file:document.getElementById('file').value,
       comment: document.getElementById("comment").value,
     };

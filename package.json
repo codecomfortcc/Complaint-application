@@ -1,12 +1,12 @@
 {
-  "name": "cmpalaint-appliaction",
+  "name": "complaint-application",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "nodemon server/index.js",
-    "frontend": "cd client && npm run dev",
+    "frontend": "cd client && npm run start",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "",
