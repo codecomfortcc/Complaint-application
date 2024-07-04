@@ -2,7 +2,8 @@ import express from "express";
 import { fileURLToPath } from "url";
 import path from "node:path";
 import dotenv from "dotenv";
-import { sheetRouter } from "./routes/sheets.routes.js";
+import SheetRouter from './routes/sheets.routes.js';
+
 import cors from "cors";
 const app = express();
 dotenv.config();
@@ -12,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "..", "client")));
 app.use(express.json());
-app.use("/api/sheets", sheetRouter);
+app.use('/api/sheets',SheetRouter)
 app.use(cors());
 
 const port = process.env.PORT || 4000;

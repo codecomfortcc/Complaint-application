@@ -9,6 +9,5 @@ export async function sheetsFetch(data) {
   };
   const request = new Request(url, options);
   const response = await fetch(request);
-  console.log(response)
-
+  return response.ok();
 }
